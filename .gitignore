@@ -7,3 +7,5 @@ __pycache__/
 data/
 Student folder/
 *.zip
+evaluator_test/
+PathSnap_student_materials/

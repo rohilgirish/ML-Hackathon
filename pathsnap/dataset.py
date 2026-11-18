@@ -39,7 +39,12 @@ def build_partition(part: str, n_jobs: int = -1):
     cache_l = config.CACHE_DIR / f"{part}_labels.parquet"
     if cache_f.exists() and cache_l.exists():
         return pd.read_parquet(cache_f), pd.read_parquet(cache_l)
-    part_dir = config.TRAIN_DIR if part == "train" else config.STUDENT_TEST_DIR
+    if part == "train":
+        part_dir = config.TRAIN_DIR
+    elif part == "evaluator_test":
+        part_dir = config.EVALUATOR_TEST_DIR
+    else:
+        part_dir = config.STUDENT_TEST_DIR
     trips = list_trips(part_dir)
     t0 = time.time()
     out = Parallel(n_jobs=n_jobs)(delayed(build_trip_table)(part_dir / t) for t in trips)

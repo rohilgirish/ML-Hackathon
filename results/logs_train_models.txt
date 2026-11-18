@@ -1,0 +1,49 @@
+training rows: 442498 (62648 obs)
+
+=== RandomForest
+  fold 0: macroF1=0.9217 top1=0.8664 logloss=0.1010 (11.4s)
+  fold 1: macroF1=0.9413 top1=0.8826 logloss=0.0678 (13.1s)
+  fold 2: macroF1=0.9575 top1=0.9315 logloss=0.0586 (12.4s)
+  fold 3: macroF1=0.9356 top1=0.8749 logloss=0.0726 (11.3s)
+  fold 4: macroF1=0.9313 top1=0.8874 logloss=0.0948 (12.2s)
+model                                                      RandomForest
+family                                               Ensemble (bagging)
+config                     150 trees, min_samples_leaf=5, sqrt features
+cv_macro_f1                                                    0.937507
+cv_macro_f1_std                                                0.013289
+cv_top1                                                        0.888575
+cv_log_loss                                                    0.078971
+train_macro_f1                                                 0.972292
+train_log_loss                                                 0.040928
+test_top1                                                      0.893016
+test_macro_f1                                                  0.936005
+test_precision                                                 0.942810
+test_recall                                                    0.929491
+test_log_loss                                                  0.070473
+test_route_continuity                                          0.944809
+fit_time_s                                                    16.673270
+inference_ms_per_1k_obs                                        9.447137
+
+=== MLP
+  fold 0: macroF1=0.9167 top1=0.8634 logloss=0.1102 (7.5s)
+  fold 1: macroF1=0.9366 top1=0.8811 logloss=0.0722 (8.3s)
+  fold 2: macroF1=0.9522 top1=0.9256 logloss=0.0677 (7.3s)
+  fold 3: macroF1=0.9305 top1=0.8697 logloss=0.0762 (5.5s)
+  fold 4: macroF1=0.9240 top1=0.8798 logloss=0.1029 (7.6s)
+model                                                   MLP
+family                                       Neural network
+config                     64-32 ReLU, adam, early stopping
+cv_macro_f1                                        0.931995
+cv_macro_f1_std                                    0.013508
+cv_top1                                            0.883925
+cv_log_loss                                        0.085844
+train_macro_f1                                     0.948925
+train_log_loss                                     0.063135
+test_top1                                          0.893068
+test_macro_f1                                      0.931198
+test_precision                                     0.932211
+test_recall                                        0.930191
+test_log_loss                                      0.076056
+test_route_continuity                              0.943811
+fit_time_s                                         9.091445
+inference_ms_per_1k_obs                            0.814717
