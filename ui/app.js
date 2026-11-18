@@ -5,8 +5,9 @@ const $ = (id) => document.getElementById(id);
 $("api-url").value = DEFAULT_API;
 
 const map = L.map("map", { preferCanvas: true }).setView([20, 0], 2);
-L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-  attribution: "&copy; OpenStreetMap contributors &copy; CARTO", maxZoom: 20,
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "&copy; OpenStreetMap contributors",
+  maxZoom: 19,
 }).addTo(map);
 let layers = {};
 let control = null;
