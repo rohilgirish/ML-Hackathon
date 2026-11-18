@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.cache/
+.DS_Store
+# raw data is distributed by the organisers, not committed
+data/
+Student folder/
+*.zip
