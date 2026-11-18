@@ -1,0 +1,14 @@
+ 2026-11-18 10:45:14,156 | INFO | Loaded model: LightGBM (Optuna-tuned) | HMM: {'alpha': 1.0, 'beta': 2.0, 'topk': 8, 'back_tol': 15.0, 'limit_base': 100.0, 'limit_gc': 2.0, 'limit_dt': 5.0, 'limit_max': 5000.0, 'max_gap_s': 120.0}
+ 2026-11-18 10:45:14,156 | INFO | Serving evaluation trips from /Users/rohitsmac/hackathon/Student folder/student_test
+ 2026-11-18 10:45:19,355 | INFO | GET /trips -> 10 trips
+ INFO:     127.0.0.1:49963 - "GET /trips HTTP/1.1" 200 OK
+ 2026-11-18 10:45:19,722 | INFO | POST /predict trip=00000000 : 2503 fixes | accuracy clf=0.9521 hmm=0.9648 | route F1=0.9943 | continuity=0.991 | 0.32s
+ 2026-11-18 10:45:19,963 | INFO | POST /predict trip=00000007 : 1354 fixes | accuracy clf=0.9291 hmm=0.8907 | route F1=0.9911 | continuity=1.000 | 0.14s
+ 2026-11-18 10:45:20,380 | INFO | POST /predict trip=00000009 : 1049 fixes | accuracy clf=0.8875 hmm=0.9056 | route F1=0.9690 | continuity=1.000 | 0.38s
+ 2026-11-18 10:45:20,921 | INFO | POST /predict trip=00000040 : 2995 fixes | accuracy clf=0.9356 hmm=0.9492 | route F1=0.9985 | continuity=1.000 | 0.39s
+ 2026-11-18 10:45:21,003 | INFO | POST /predict trip=00000052 : 262 fixes | accuracy clf=0.9733 hmm=1.0000 | route F1=0.9984 | continuity=1.000 | 0.05s
+ 2026-11-18 10:45:22,500 | INFO | POST /predict trip=00000056 : 3958 fixes | accuracy clf=0.9178 hmm=0.9520 | route F1=0.9803 | continuity=0.999 | 1.32s
+ 2026-11-18 10:45:22,815 | INFO | POST /predict trip=00000065 : 768 fixes | accuracy clf=0.8763 hmm=0.8867 | route F1=0.9834 | continuity=1.000 | 0.22s
+ 2026-11-18 10:45:23,861 | INFO | POST /predict trip=00000076 : 1486 fixes | accuracy clf=0.9280 hmm=0.9677 | route F1=0.9799 | continuity=1.000 | 0.99s
+ 2026-11-18 10:45:26,307 | INFO | POST /predict trip=00000077 : 3911 fixes | accuracy clf=0.7691 hmm=0.8351 | route F1=0.9794 | continuity=1.000 | 0.77s
+ 2026-11-18 10:45:26,607 | INFO | POST /predict trip=00000091 : 874 fixes | accuracy clf=0.9119 hmm=0.9348 | route F1=0.9752 | continuity=1.000 | 0.24s

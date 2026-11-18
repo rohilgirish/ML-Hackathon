@@ -1,0 +1,43 @@
+{
+  "model": "LightGBM (Optuna-tuned)",
+  "features": [
+    "dist",
+    "dist_rank",
+    "dist_minus_min",
+    "dist_ratio",
+    "gauss_share",
+    "heading_cos",
+    "heading_absdiff",
+    "speed",
+    "heading_valid",
+    "arc_length",
+    "proj_t",
+    "proj_inside",
+    "n_cands",
+    "n_within_20",
+    "ctx_mean_dist",
+    "ctx_max_dist",
+    "ctx_rank",
+    "ctx_minus_min",
+    "ctx_heading_cos",
+    "from_in_deg",
+    "to_out_deg",
+    "has_reverse",
+    "dt_prev",
+    "dt_next"
+  ],
+  "params": {
+    "n_estimators": 261,
+    "learning_rate": 0.0259043580380853,
+    "num_leaves": 91,
+    "min_child_samples": 21,
+    "subsample": 0.9254293092338329,
+    "colsample_bytree": 0.5675511529934445,
+    "reg_lambda": 0.0015272154094065477,
+    "reg_alpha": 0.014773941558816853
+  },
+  "seed": 42,
+  "candidate_radius_m": 50.0,
+  "candidate_max_k": 12,
+  "trained_on": "80 training trips (stride 3, reliable labels)"
+}

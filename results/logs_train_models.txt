@@ -1,5 +1,101 @@
 training rows: 442498 (62648 obs)
 
+=== LogisticRegression
+  fold 0: macroF1=0.9147 top1=0.8555 logloss=0.1123 (0.2s)
+  fold 1: macroF1=0.9372 top1=0.8791 logloss=0.0801 (0.2s)
+  fold 2: macroF1=0.9511 top1=0.9256 logloss=0.0719 (0.2s)
+  fold 3: macroF1=0.9314 top1=0.8731 logloss=0.0872 (0.2s)
+  fold 4: macroF1=0.9229 top1=0.8820 logloss=0.1148 (0.2s)
+model                           LogisticRegression
+family                                      Linear
+config                     L2, C=1.0, standardised
+cv_macro_f1                               0.931484
+cv_macro_f1_std                           0.013889
+cv_top1                                   0.883041
+cv_log_loss                               0.093245
+train_macro_f1                            0.931817
+train_log_loss                            0.092296
+test_top1                                 0.889411
+test_macro_f1                             0.931548
+test_precision                            0.931204
+test_recall                               0.931894
+test_log_loss                             0.083769
+test_route_continuity                     0.803712
+fit_time_s                                0.190225
+inference_ms_per_1k_obs                   0.188321
+
+=== GaussianNB
+  fold 0: macroF1=0.8288 top1=0.8065 logloss=0.8634 (0.0s)
+  fold 1: macroF1=0.8383 top1=0.8383 logloss=0.6389 (0.0s)
+  fold 2: macroF1=0.8478 top1=0.8837 logloss=0.6759 (0.0s)
+  fold 3: macroF1=0.8406 top1=0.8275 logloss=0.6453 (0.0s)
+  fold 4: macroF1=0.8129 top1=0.7912 logloss=1.1372 (0.0s)
+model                              GaussianNB
+family                          Probabilistic
+config                     var_smoothing=1e-9
+cv_macro_f1                          0.833679
+cv_macro_f1_std                      0.013432
+cv_top1                              0.829428
+cv_log_loss                          0.792142
+train_macro_f1                       0.833433
+train_log_loss                       0.796195
+test_top1                            0.835188
+test_macro_f1                        0.835325
+test_precision                       0.790299
+test_recall                           0.92405
+test_log_loss                        0.735942
+test_route_continuity                0.777415
+fit_time_s                           0.027931
+inference_ms_per_1k_obs              0.360614
+
+=== KNN
+  fold 0: macroF1=0.9131 top1=0.8524 logloss=0.1643 (0.0s)
+  fold 1: macroF1=0.9329 top1=0.8707 logloss=0.1018 (0.0s)
+  fold 2: macroF1=0.9479 top1=0.9163 logloss=0.0904 (0.0s)
+  fold 3: macroF1=0.9263 top1=0.8525 logloss=0.1123 (0.0s)
+  fold 4: macroF1=0.9143 top1=0.8616 logloss=0.1567 (0.0s)
+model                                                                    KNN
+family                                                        Instance-based
+config                     k=25, distance-weighted, standardised, 60k-row...
+cv_macro_f1                                                         0.926884
+cv_macro_f1_std                                                     0.014367
+cv_top1                                                             0.870727
+cv_log_loss                                                         0.125086
+train_macro_f1                                                           1.0
+train_log_loss                                                           0.0
+test_top1                                                           0.880479
+test_macro_f1                                                       0.926895
+test_precision                                                      0.930941
+test_recall                                                         0.922956
+test_log_loss                                                       0.103178
+test_route_continuity                                               0.770485
+fit_time_s                                                          0.004768
+inference_ms_per_1k_obs                                           143.204116
+
+=== DecisionTree
+  fold 0: macroF1=0.9149 top1=0.8629 logloss=0.1424 (3.3s)
+  fold 1: macroF1=0.9371 top1=0.8781 logloss=0.0932 (3.2s)
+  fold 2: macroF1=0.9500 top1=0.9241 logloss=0.0800 (3.2s)
+  fold 3: macroF1=0.9206 top1=0.8586 logloss=0.0999 (3.2s)
+  fold 4: macroF1=0.9220 top1=0.8716 logloss=0.1504 (3.2s)
+model                                           DecisionTree
+family                                                  Tree
+config                     max_depth=12, min_samples_leaf=20
+cv_macro_f1                                         0.928899
+cv_macro_f1_std                                     0.014357
+cv_top1                                             0.879068
+cv_log_loss                                         0.113188
+train_macro_f1                                       0.94687
+train_log_loss                                      0.061278
+test_top1                                           0.888105
+test_macro_f1                                       0.930346
+test_precision                                      0.932069
+test_recall                                         0.928642
+test_log_loss                                       0.095484
+test_route_continuity                               0.798358
+fit_time_s                                          4.060942
+inference_ms_per_1k_obs                              0.27509
+
 === RandomForest
   fold 0: macroF1=0.9217 top1=0.8664 logloss=0.1010 (11.4s)
   fold 1: macroF1=0.9413 top1=0.8826 logloss=0.0678 (13.1s)
@@ -17,12 +113,60 @@ train_macro_f1                                                 0.972292
 train_log_loss                                                 0.040928
 test_top1                                                      0.893016
 test_macro_f1                                                  0.936005
-test_precision                                                 0.942810
+test_precision                                                  0.94281
 test_recall                                                    0.929491
 test_log_loss                                                  0.070473
-test_route_continuity                                          0.944809
-fit_time_s                                                    16.673270
+test_route_continuity                                          0.834291
+fit_time_s                                                     16.67327
 inference_ms_per_1k_obs                                        9.447137
+
+=== LightGBM
+  fold 0: macroF1=0.9175 top1=0.8639 logloss=0.1019 (4.9s)
+  fold 1: macroF1=0.9423 top1=0.8871 logloss=0.0641 (4.7s)
+  fold 2: macroF1=0.9567 top1=0.9295 logloss=0.0571 (4.9s)
+  fold 3: macroF1=0.9337 top1=0.8708 logloss=0.0707 (5.0s)
+  fold 4: macroF1=0.9333 top1=0.8890 logloss=0.0898 (5.0s)
+model                                           LightGBM
+family                                          Boosting
+config                     400 trees, lr=0.05, 63 leaves
+cv_macro_f1                                     0.936702
+cv_macro_f1_std                                 0.014316
+cv_top1                                         0.888068
+cv_log_loss                                     0.076713
+train_macro_f1                                  0.968357
+train_log_loss                                  0.039387
+test_top1                                       0.903254
+test_macro_f1                                   0.940381
+test_precision                                  0.944907
+test_recall                                     0.935984
+test_log_loss                                   0.066613
+test_route_continuity                           0.838022
+fit_time_s                                     12.010213
+inference_ms_per_1k_obs                        16.493426
+
+=== XGBoost
+  fold 0: macroF1=0.9189 top1=0.8633 logloss=0.0989 (2.2s)
+  fold 1: macroF1=0.9408 top1=0.8872 logloss=0.0651 (2.4s)
+  fold 2: macroF1=0.9576 top1=0.9300 logloss=0.0566 (2.6s)
+  fold 3: macroF1=0.9350 top1=0.8720 logloss=0.0700 (3.0s)
+  fold 4: macroF1=0.9329 top1=0.8875 logloss=0.0894 (2.8s)
+model                                          XGBoost
+family                                        Boosting
+config                     400 trees, lr=0.05, depth=7
+cv_macro_f1                                   0.937035
+cv_macro_f1_std                               0.014046
+cv_top1                                       0.887998
+cv_log_loss                                   0.075987
+train_macro_f1                                 0.96652
+train_log_loss                                0.043767
+test_top1                                     0.900225
+test_macro_f1                                 0.938998
+test_precision                                0.944321
+test_recall                                   0.933854
+test_log_loss                                 0.066818
+test_route_continuity                         0.834354
+fit_time_s                                    7.642394
+inference_ms_per_1k_obs                        5.65841
 
 === MLP
   fold 0: macroF1=0.9167 top1=0.8634 logloss=0.1102 (7.5s)
@@ -44,6 +188,6 @@ test_macro_f1                                      0.931198
 test_precision                                     0.932211
 test_recall                                        0.930191
 test_log_loss                                      0.076056
-test_route_continuity                              0.943811
+test_route_continuity                              0.832039
 fit_time_s                                         9.091445
 inference_ms_per_1k_obs                            0.814717

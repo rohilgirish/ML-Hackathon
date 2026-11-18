@@ -1,0 +1,60 @@
+{
+  "search_space": {
+    "n_estimators": [
+      "int",
+      100,
+      800
+    ],
+    "learning_rate": [
+      "float_log",
+      0.01,
+      0.2
+    ],
+    "num_leaves": [
+      "int_log",
+      15,
+      255
+    ],
+    "min_child_samples": [
+      "int_log",
+      5,
+      300
+    ],
+    "subsample": [
+      "float",
+      0.5,
+      1.0
+    ],
+    "colsample_bytree": [
+      "float",
+      0.4,
+      1.0
+    ],
+    "reg_lambda": [
+      "float_log",
+      0.001,
+      10.0
+    ],
+    "reg_alpha": [
+      "float_log",
+      0.001,
+      10.0
+    ]
+  },
+  "objective": "mean 5-fold GroupKFold macro-F1",
+  "sampler": "TPE (seed 42, 8 startup trials)",
+  "pruner": "Median (by fold)",
+  "n_trials": 40,
+  "best_value": 0.9378942417020719,
+  "best_params": {
+    "n_estimators": 261,
+    "learning_rate": 0.0259043580380853,
+    "num_leaves": 91,
+    "min_child_samples": 21,
+    "subsample": 0.9254293092338329,
+    "colsample_bytree": 0.5675511529934445,
+    "reg_lambda": 0.0015272154094065477,
+    "reg_alpha": 0.014773941558816853
+  },
+  "optimisation_time_s": 698.0600430965424
+}

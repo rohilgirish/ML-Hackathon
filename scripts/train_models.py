@@ -91,6 +91,22 @@ def main(only=None):
         fit_df = cap_rows(train, max_rows)
         m = factory()
         t0 = time.time()
+        if name in ("LightGBM", "XGBoost"):
+            # hold out 10 training trips only to record the boosting history
+            trips = np.array(sorted(fit_df.trip.unique()))
+            rng = np.random.default_rng(config.SEED)
+            hold = set(rng.choice(trips, 10, replace=False))
+            a, b = fit_df[~fit_df.trip.isin(hold)], fit_df[fit_df.trip.isin(hold)]
+            h = factory()
+            if name == "LightGBM":
+                h.fit(a[FEATURES], a.y, eval_set=[(a[FEATURES], a.y), (b[FEATURES], b.y)],
+                      eval_names=["train", "valid"], eval_metric="binary_logloss")
+                hist = {k2: v["binary_logloss"] for k2, v in h.evals_result_.items()}
+            else:
+                h.fit(a[FEATURES], a.y, eval_set=[(a[FEATURES], a.y), (b[FEATURES], b.y)], verbose=False)
+                r = h.evals_result()
+                hist = {"train": r["validation_0"]["logloss"], "valid": r["validation_1"]["logloss"]}
+            json.dump(hist, open(hist_dir / f"{name}.json", "w"))
         m.fit(fit_df[FEATURES].to_numpy(np.float32), fit_df.y.to_numpy())
         fit_t = time.time() - t0
         if name == "MLP":

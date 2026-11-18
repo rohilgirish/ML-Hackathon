@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PathSnap Evaluator</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">PathSnap <span>map-matching evaluator</span></div>
+  <form id="api-form" class="api">
+    <label for="api-url">API</label>
+    <input id="api-url" type="text" spellcheck="false">
+    <button type="submit">Connect</button>
+    <span id="api-status" class="status">not connected</span>
+  </form>
+</header>
+<main>
+  <aside>
+    <h2>Evaluation trips</h2>
+    <ul id="trip-list"><li class="muted">Connect to the API to load trips.</li></ul>
+    <section id="metrics" hidden>
+      <h2>Results <span id="res-trip"></span></h2>
+      <div class="kpis">
+        <div class="kpi"><div class="v" id="m-hmm"></div><div class="l">Point accuracy (HMM)</div></div>
+        <div class="kpi"><div class="v" id="m-clf"></div><div class="l">Classifier only</div></div>
+        <div class="kpi"><div class="v" id="m-f1"></div><div class="l">Route F1 (length)</div></div>
+        <div class="kpi"><div class="v" id="m-cont"></div><div class="l">Route continuity</div></div>
+      </div>
+      <table id="m-table"></table>
+    </section>
+  </aside>
+  <div id="map-wrap">
+    <div id="map"></div>
+    <div id="busy" hidden><div class="spinner"></div><span>Running pipeline on the API…</span></div>
+  </div>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
